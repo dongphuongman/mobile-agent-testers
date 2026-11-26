@@ -109,6 +109,62 @@ class Summary(unittest.TestCase):
             self.assertNotIn("mobile-agent-testers", out)
             self.assertTrue(out.endswith("|\n"))
 
+    def test_mixed_case_severity_is_normalized_for_summary_and_notify(self):
+        import notify  # local import to avoid circular import with test_notify
+        with tempfile.TemporaryDirectory() as d:
+            write_run(d, {
+                "anna": {"score": 5, "issues": [
+                    {"title": "Crash on Save | Cancel", "severity": " BLOCKER ", "screen": "Editor"},
+                    {"title": "Tiny button", "severity": "Major", "screen": "Settings"},
+                    {"title": "Typo in footer", "severity": "cosmetic", "screen": "Home"}]},
+                "malik": {"score": 7, "issues": [
+                    {"title": "Crash on Save | Cancel", "severity": "minor", "screen": "Editor"}]},
+            })
+            findings, scores = summarize.load(d)
+            md = summarize.render(findings, scores, summarize.group_by_title(findings), False)
+            msg = notify.message(findings, scores)
+        table = [line for line in md.splitlines() if line.startswith("| ") and "Severity" not in line]
+        self.assertEqual(table, [
+            "| blocker | Crash on Save \\| Cancel | 2 (anna, malik) | Editor |",
+            "| major | Tiny button | 1 (anna) | Settings |",
+            "| cosmetic | Typo in footer | 1 (anna) | Home |",
+        ])
+        msg_lines = [line for line in msg.splitlines() if line.startswith("- ")]
+        self.assertEqual(msg_lines, [
+            "- [blocker] Crash on Save | Cancel (2: anna, malik)",
+            "- [major] Tiny button (1: anna)",
+            "- [cosmetic] Typo in footer (1: anna)",
+        ])
+
+    def test_non_string_fields_in_findings_do_not_crash(self):
+        with tempfile.TemporaryDirectory() as d:
+            write_run(d, {
+                "anna": {"score": 6, "issues": [
+                    {"title": "Clipped button", "severity": "minor", "screen": ["02", "03"]},
+                    {"title": "Blank page", "severity": "major", "screen": 2},
+                    {"title": "Missing label", "severity": "cosmetic", "screen": None},
+                    {"title": 404, "severity": None, "screen": ["04", None, "", 5]},
+                    {"title": ["Broken", "header"], "severity": "   ", "screen": []},
+                    {"title": None, "severity": False, "screen": 0}]},
+                "malik": {"score": 8, "issues": 123},
+            })
+            findings, scores = summarize.load(d)
+            md = summarize.render(findings, scores, summarize.group_by_title(findings), False)
+        self.assertEqual([(f["title"], f["severity"], f["screen"]) for f in findings], [
+            ("Clipped button", "minor", "02, 03"),
+            ("Blank page", "major", "2"),
+            ("Missing label", "cosmetic", ""),
+            ("404", "?", "04, 5"),
+            ("Broken, header", "?", ""),
+            ("?", "?", "0"),
+        ])
+        self.assertIn("| minor | Clipped button | 1 (anna) | 02, 03 |", md)
+        self.assertIn("| major | Blank page | 1 (anna) | 2 |", md)
+        self.assertIn("| cosmetic | Missing label | 1 (anna) |  |", md)
+        self.assertIn("| ? | 404 | 1 (anna) | 04, 5 |", md)
+        self.assertIn("| ? | Broken, header | 1 (anna) |  |", md)
+        self.assertIn("| ? | ? | 1 (anna) | 0 |", md)
+
 
 class Reproduction(unittest.TestCase):
     """A run with bug_report: each persona answers whether it reproduced the bug."""

@@ -66,18 +66,30 @@ def number(x):
     return x if isinstance(x, (int, float)) and not isinstance(x, bool) else None
 
 
+def text(x, default=""):
+    """Coerce a JSON value from findings.json to a trimmed string."""
+    if x is None or isinstance(x, bool):
+        return default
+    if isinstance(x, list):
+        s = ", ".join(p for p in (text(item) for item in x) if p)
+    else:
+        s = str(x).strip()
+    return s or default
+
+
 def load(run_dir):
     findings, scores = [], []
     for persona, data in per_persona(run_dir):
         if number(data.get("score")) is not None:
             scores.append(data["score"])
-        for i in data.get("issues") or []:
+        issues = data.get("issues")
+        for i in issues if isinstance(issues, list) else []:
             if not isinstance(i, dict):
                 continue
             findings.append({"id": len(findings) + 1, "persona": persona,
-                             "severity": i.get("severity") or "?",
-                             "title": (i.get("title") or "?").strip(),
-                             "screen": (i.get("screen") or "").strip()})
+                             "severity": text(i.get("severity"), "?").lower(),
+                             "title": text(i.get("title"), "?"),
+                             "screen": text(i.get("screen"))})
     return findings, scores
 
 

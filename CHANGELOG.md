@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- **Summary findings normalization**: `scripts/summarize.py` now normalizes issue severities (`"BLOCKER"`, `"Major"`) to lowercase so mixed-case severities are not downgraded or misranked in `SUMMARY.md` and `scripts/notify.py`, and coerces non-string `title`, `screen`, and `issues` fields in `findings.json` without crashing.
 - **Android screen element filtering**: `scripts/android/screen.py` now parses signed UIAutomator `bounds` (avoiding phantom on-screen tap targets from negative off-screen coordinates), skips zero-size or off-screen elements, and collapses multiline labels onto one line.
 - **NativeScript builds (beta)**: `scripts/build/detect.sh` detects NativeScript apps (`nativescript.config.*` or `@nativescript/core` / `tns-core-modules` in `package.json`), and `scripts/build/android.sh` and `scripts/build/ios.sh` build a debug APK (`ns build android`) and an iOS Simulator `.app` (`ns build ios`), forwarding `build_args` / `BUILD_ARGS`. Beta: the tests use a stand-in for `ns`, no real NativeScript app has been built with it yet.
 - **Slow and flaky networks (Android)**: optional `network` field in an Android persona's `device` (`slow` or `flaky`). `scripts/android/run_agent.sh` sets the emulator's network before the app launches, with `adb emu network speed` and `adb emu network delay`: EDGE speed for both, EDGE latency for `slow`, replies 0.5 to 3 s late for `flaky`. The job log shows what the emulator applied, and the agent's prompt names the condition. Kenji uses `flaky`.

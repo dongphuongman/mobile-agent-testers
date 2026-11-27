@@ -1,6 +1,6 @@
 # Teste o seu próprio app
 
-[English](../../../docs/configuration.md) · [简体中文](../../zh-CN/docs/configuration.md) · [日本語](../../ja/docs/configuration.md) · [Español](../../es/docs/configuration.md) · Português · [Tiếng Việt](../../vi/docs/configuration.md) · [Türkçe](../../tr/docs/configuration.md)
+[English](../../../docs/configuration.md) · [简体中文](../../zh-CN/docs/configuration.md) · [日本語](../../ja/docs/configuration.md) · [Español](../../es/docs/configuration.md) · Português · [Tiếng Việt](../../vi/docs/configuration.md) · [Türkçe](../../tr/docs/configuration.md) · [Deutsch](../../de/docs/configuration.md)
 
 ```bash
 gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
@@ -18,7 +18,7 @@ gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
 | `model`, `llm_base_url` | `sonnet` por padrão, `haiku` para gastar menos, ou qualquer API compatível com a Anthropic com a chave em um secret `LLM_API_KEY` ([docs/cheaper-models.md](../../../docs/cheaper-models.md)) |
 | `framework` | `auto` (padrão) ou force um dos frameworks abaixo |
 | `android_build` + `apk_path`, `ios_build` + `ios_app_path` | Seu próprio comando de build, ou o download de um app já compilado (caminhos relativos a `app_dir`) |
-| `build_args` | Argumentos extras para a compilação automática das duas plataformas, como `--dart-define=API_URL=https://staging.example.com` no Flutter (argumentos de Gradle e xcodebuild nos outros). Chaves vão num secret `BUILD_ARGS`: num repositório público, as entradas de cada execução são públicas |
+| `build_args` | Argumentos extras para a compilação automática das duas plataformas, como `--dart-define=API_URL=https://staging.example.com` no Flutter (argumentos de Gradle e xcodebuild nos outros). Chaves vão num secret `BUILD_ARGS`: num repositório público, as entradas de cada execução são públicas. O código de build do app também consegue ler esse secret: use uma chave temporária ou de staging, nunca uma permanente |
 | `block_hosts` | Hosts de analytics bloqueados durante os testes |
 | `record_video` | Gravação de tela de cada celular, criptografada com os relatórios |
 | `replay_path` | Experimental, Android: depois de cada agente, o percurso dele é repetido no mesmo celular sem modelo ([docs/replay.md](../../../docs/replay.md)) |

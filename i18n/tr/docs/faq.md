@@ -1,6 +1,6 @@
 # SSS
 
-[English](../../../docs/faq.md) · [简体中文](../../zh-CN/docs/faq.md) · [日本語](../../ja/docs/faq.md) · [Español](../../es/docs/faq.md) · [Português](../../pt-BR/docs/faq.md) · [Tiếng Việt](../../vi/docs/faq.md) · Türkçe
+[English](../../../docs/faq.md) · [简体中文](../../zh-CN/docs/faq.md) · [日本語](../../ja/docs/faq.md) · [Español](../../es/docs/faq.md) · [Português](../../pt-BR/docs/faq.md) · [Tiếng Việt](../../vi/docs/faq.md) · Türkçe · [Deutsch](../../de/docs/faq.md)
 
 ## 20 ajan aynı hatayı 20 kez mi buluyor?
 

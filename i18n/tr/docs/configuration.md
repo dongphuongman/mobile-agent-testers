@@ -1,6 +1,6 @@
 # Kendi uygulamanızı test edin
 
-[English](../../../docs/configuration.md) · [简体中文](../../zh-CN/docs/configuration.md) · [日本語](../../ja/docs/configuration.md) · [Español](../../es/docs/configuration.md) · [Português](../../pt-BR/docs/configuration.md) · [Tiếng Việt](../../vi/docs/configuration.md) · Türkçe
+[English](../../../docs/configuration.md) · [简体中文](../../zh-CN/docs/configuration.md) · [日本語](../../ja/docs/configuration.md) · [Español](../../es/docs/configuration.md) · [Português](../../pt-BR/docs/configuration.md) · [Tiếng Việt](../../vi/docs/configuration.md) · Türkçe · [Deutsch](../../de/docs/configuration.md)
 
 ```bash
 gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
@@ -18,7 +18,7 @@ gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
 | `model`, `llm_base_url` | Varsayılan `sonnet`, daha az harcamak için `haiku` ya da anahtarı bir `LLM_API_KEY` secret'ında duran, Anthropic uyumlu herhangi bir API ([docs/cheaper-models.md](../../../docs/cheaper-models.md)) |
 | `framework` | `auto` (varsayılan) ya da aşağıdaki framework'lerden birini zorla |
 | `android_build` + `apk_path`, `ios_build` + `ios_app_path` | Kendi build komutun ya da hazır derlenmiş bir uygulamanın indirilmesi (yollar `app_dir`'e göre) |
-| `build_args` | Her iki platformun otomatik build'i için ek argümanlar; Flutter için `--dart-define=API_URL=https://staging.example.com` gibi (diğerleri için Gradle ve xcodebuild argümanları). Anahtarlar bir `BUILD_ARGS` secret'ına konur: public bir repoda çalıştırma girdileri herkese açıktır |
+| `build_args` | Her iki platformun otomatik build'i için ek argümanlar; Flutter için `--dart-define=API_URL=https://staging.example.com` gibi (diğerleri için Gradle ve xcodebuild argümanları). Anahtarlar bir `BUILD_ARGS` secret'ına konur: public bir repoda çalıştırma girdileri herkese açıktır. Uygulamanın kendi build kodu da bu secret'ı okuyabilir: kalıcı bir anahtar değil, kısa ömürlü ya da staging anahtarı kullanın |
 | `block_hosts` | Testler sırasında engellenen analitik host'ları |
 | `record_video` | Her telefonun ekran kaydı, raporlarla birlikte şifrelenir |
 | `replay_path` | Deneysel, Android: her ajandan sonra izlediği yol aynı telefonda modelsiz olarak yeniden oynatılır ([docs/replay.md](../../../docs/replay.md)) |

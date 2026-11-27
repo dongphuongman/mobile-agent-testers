@@ -1,6 +1,6 @@
 # Kiểm thử ứng dụng của bạn
 
-[English](../../../docs/configuration.md) · [简体中文](../../zh-CN/docs/configuration.md) · [日本語](../../ja/docs/configuration.md) · [Español](../../es/docs/configuration.md) · [Português](../../pt-BR/docs/configuration.md) · Tiếng Việt · [Türkçe](../../tr/docs/configuration.md)
+[English](../../../docs/configuration.md) · [简体中文](../../zh-CN/docs/configuration.md) · [日本語](../../ja/docs/configuration.md) · [Español](../../es/docs/configuration.md) · [Português](../../pt-BR/docs/configuration.md) · Tiếng Việt · [Türkçe](../../tr/docs/configuration.md) · [Deutsch](../../de/docs/configuration.md)
 
 ```bash
 gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
@@ -18,7 +18,7 @@ gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
 | `model`, `llm_base_url` | `sonnet` mặc định, `haiku` để tốn ít hơn, hoặc bất kỳ API nào tương thích Anthropic với key của nó trong secret `LLM_API_KEY` ([docs/cheaper-models.md](../../../docs/cheaper-models.md)) |
 | `framework` | `auto` (mặc định) hoặc ép dùng một trong các framework bên dưới |
 | `android_build` + `apk_path`, `ios_build` + `ios_app_path` | Lệnh build của riêng bạn, hoặc tải về một ứng dụng đã build sẵn (đường dẫn tương đối so với `app_dir`) |
-| `build_args` | Đối số bổ sung cho quá trình build tự động của cả hai nền tảng, như `--dart-define=API_URL=https://staging.example.com` cho Flutter (đối số Gradle và xcodebuild cho các framework khác). Key để trong secret `BUILD_ARGS`: input của lần chạy là công khai trên repo công khai |
+| `build_args` | Đối số bổ sung cho quá trình build tự động của cả hai nền tảng, như `--dart-define=API_URL=https://staging.example.com` cho Flutter (đối số Gradle và xcodebuild cho các framework khác). Key để trong secret `BUILD_ARGS`: input của lần chạy là công khai trên repo công khai. Mã build của chính ứng dụng cũng đọc được secret này: hãy dùng key ngắn hạn hoặc key staging, đừng dùng key dài hạn |
 | `block_hosts` | Các host phân tích bị chặn trong lúc kiểm thử |
 | `record_video` | Quay màn hình của mỗi điện thoại, được mã hóa cùng các báo cáo |
 | `replay_path` | Thử nghiệm, Android: sau mỗi agent, đường đi của nó được chạy lại trên cùng điện thoại, không cần mô hình ([docs/replay.md](../../../docs/replay.md)) |

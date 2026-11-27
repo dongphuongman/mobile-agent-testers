@@ -1,6 +1,6 @@
 # 测试你自己的应用
 
-[English](../../../docs/configuration.md) · 简体中文 · [日本語](../../ja/docs/configuration.md) · [Español](../../es/docs/configuration.md) · [Português](../../pt-BR/docs/configuration.md) · [Tiếng Việt](../../vi/docs/configuration.md) · [Türkçe](../../tr/docs/configuration.md)
+[English](../../../docs/configuration.md) · 简体中文 · [日本語](../../ja/docs/configuration.md) · [Español](../../es/docs/configuration.md) · [Português](../../pt-BR/docs/configuration.md) · [Tiếng Việt](../../vi/docs/configuration.md) · [Türkçe](../../tr/docs/configuration.md) · [Deutsch](../../de/docs/configuration.md)
 
 ```bash
 gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
@@ -18,7 +18,7 @@ gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
 | `model`、`llm_base_url` | 默认 `sonnet`，想省钱用 `haiku`，也可以用任何兼容 Anthropic 接口的 API，密钥放在 `LLM_API_KEY` secret 里（[docs/cheaper-models.md](../../../docs/cheaper-models.md)） |
 | `framework` | `auto`（默认），或强制使用下表中的某个框架 |
 | `android_build` + `apk_path`, `ios_build` + `ios_app_path` | 你自己的构建命令，或下载一个预构建的应用（路径相对于 `app_dir`） |
-| `build_args` | 自动构建时追加的参数，两个平台都生效：Flutter 用 `--dart-define=API_URL=https://staging.example.com`，其他框架是 Gradle 和 xcodebuild 的参数。公开仓库里每次运行的输入都是公开的，密钥请放进 `BUILD_ARGS` secret |
+| `build_args` | 自动构建时追加的参数，两个平台都生效：Flutter 用 `--dart-define=API_URL=https://staging.example.com`，其他框架是 Gradle 和 xcodebuild 的参数。公开仓库里每次运行的输入都是公开的，密钥请放进 `BUILD_ARGS` secret。应用自己的构建代码也能读到这个 secret，所以请用短期或预发布环境的密钥，不要用长期密钥 |
 | `block_hosts` | 测试期间屏蔽的统计分析域名 |
 | `record_video` | 每台手机的录屏，与报告一起加密 |
 | `replay_path` | 实验性，仅 Android：每个代理结束后，在同一台手机上不用模型重放它的操作路径（[docs/replay.md](../../../docs/replay.md)） |

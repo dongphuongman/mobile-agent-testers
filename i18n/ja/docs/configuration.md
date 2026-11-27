@@ -1,6 +1,6 @@
 # 自分のアプリをテストする
 
-[English](../../../docs/configuration.md) · [简体中文](../../zh-CN/docs/configuration.md) · 日本語 · [Español](../../es/docs/configuration.md) · [Português](../../pt-BR/docs/configuration.md) · [Tiếng Việt](../../vi/docs/configuration.md) · [Türkçe](../../tr/docs/configuration.md)
+[English](../../../docs/configuration.md) · [简体中文](../../zh-CN/docs/configuration.md) · 日本語 · [Español](../../es/docs/configuration.md) · [Português](../../pt-BR/docs/configuration.md) · [Tiếng Việt](../../vi/docs/configuration.md) · [Türkçe](../../tr/docs/configuration.md) · [Deutsch](../../de/docs/configuration.md)
 
 ```bash
 gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
@@ -18,7 +18,7 @@ gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
 | `model`、`llm_base_url` | デフォルトは `sonnet`。費用を抑えるなら `haiku`、または Anthropic 互換の任意の API（キーは `LLM_API_KEY` シークレットに設定）（[docs/cheaper-models.md](../../../docs/cheaper-models.md)） |
 | `framework` | `auto`（デフォルト）、または下のフレームワークのいずれかを指定 |
 | `android_build` + `apk_path`, `ios_build` + `ios_app_path` | 独自のビルドコマンド、またはビルド済みアプリのダウンロード（パスは `app_dir` からの相対パス） |
-| `build_args` | 自動ビルドに追加する引数（両プラットフォーム共通）。Flutter なら `--dart-define=API_URL=https://staging.example.com`、それ以外は Gradle と xcodebuild の引数。公開リポジトリでは実行時の入力も公開されるので、キーは `BUILD_ARGS` シークレットに入れてください |
+| `build_args` | 自動ビルドに追加する引数（両プラットフォーム共通）。Flutter なら `--dart-define=API_URL=https://staging.example.com`、それ以外は Gradle と xcodebuild の引数。公開リポジトリでは実行時の入力も公開されるので、キーは `BUILD_ARGS` シークレットに入れてください。このシークレットはアプリ自身のビルドコードからも読めるため、長期間有効なキーではなく、短期間だけ有効なキーかステージング用のキーを使ってください |
 | `block_hosts` | テスト中にブロックする分析系のホスト |
 | `record_video` | 各端末の画面録画（レポートと一緒に暗号化） |
 | `replay_path` | 実験的、Android のみ：各エージェントの終了後、その操作の流れを同じ端末でモデルなしで再生（[docs/replay.md](../../../docs/replay.md)） |

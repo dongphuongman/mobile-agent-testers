@@ -1,6 +1,6 @@
 # 常见问题
 
-[English](../../../docs/faq.md) · 简体中文 · [日本語](../../ja/docs/faq.md) · [Español](../../es/docs/faq.md) · [Português](../../pt-BR/docs/faq.md) · [Tiếng Việt](../../vi/docs/faq.md) · [Türkçe](../../tr/docs/faq.md)
+[English](../../../docs/faq.md) · 简体中文 · [日本語](../../ja/docs/faq.md) · [Español](../../es/docs/faq.md) · [Português](../../pt-BR/docs/faq.md) · [Tiếng Việt](../../vi/docs/faq.md) · [Türkçe](../../tr/docs/faq.md) · [Deutsch](../../de/docs/faq.md)
 
 ## 20 个智能体会不会把同一个缺陷找 20 遍？
 

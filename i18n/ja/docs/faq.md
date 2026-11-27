@@ -1,6 +1,6 @@
 # よくある質問
 
-[English](../../../docs/faq.md) · [简体中文](../../zh-CN/docs/faq.md) · 日本語 · [Español](../../es/docs/faq.md) · [Português](../../pt-BR/docs/faq.md) · [Tiếng Việt](../../vi/docs/faq.md) · [Türkçe](../../tr/docs/faq.md)
+[English](../../../docs/faq.md) · [简体中文](../../zh-CN/docs/faq.md) · 日本語 · [Español](../../es/docs/faq.md) · [Português](../../pt-BR/docs/faq.md) · [Tiếng Việt](../../vi/docs/faq.md) · [Türkçe](../../tr/docs/faq.md) · [Deutsch](../../de/docs/faq.md)
 
 ## 20 のエージェントが同じバグを 20 回見つけるだけでは？
 

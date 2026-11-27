@@ -1,6 +1,6 @@
 # Uygulamalı örnekler
 
-[English](../../../docs/examples.md) · [简体中文](../../zh-CN/docs/examples.md) · [日本語](../../ja/docs/examples.md) · [Español](../../es/docs/examples.md) · [Português](../../pt-BR/docs/examples.md) · [Tiếng Việt](../../vi/docs/examples.md) · Türkçe
+[English](../../../docs/examples.md) · [简体中文](../../zh-CN/docs/examples.md) · [日本語](../../ja/docs/examples.md) · [Español](../../es/docs/examples.md) · [Português](../../pt-BR/docs/examples.md) · [Tiếng Việt](../../vi/docs/examples.md) · Türkçe · [Deutsch](../../de/docs/examples.md)
 
 Açık kaynak uygulamalarda yapılmış gerçek çalıştırmalar; hiçbir hata önceden yerleştirilmedi. Buradaki her sayı, tüm raporların cihaz cihaz listelendiği [çalıştırma sonuçlarından](../../../docs/runs/) alınmıştır.
 

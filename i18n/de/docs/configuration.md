@@ -18,7 +18,7 @@ gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
 | `model`, `llm_base_url` | Standard `sonnet`, `haiku` zum Sparen, oder jede Anthropic-kompatible API mit ihrem Key in einem `LLM_API_KEY`-Secret ([docs/cheaper-models.md](../../../docs/cheaper-models.md)) |
 | `framework` | `auto` (Standard) oder erzwinge eines der Frameworks unten |
 | `android_build` + `apk_path`, `ios_build` + `ios_app_path` | Dein eigener Build-Befehl oder der Download einer vorab gebauten App (Pfade relativ zu `app_dir`) |
-| `build_args` | Zusätzliche Argumente für den automatischen Build beider Plattformen, wie `--dart-define=API_URL=https://staging.example.com` für Flutter (Gradle- und xcodebuild-Argumente für die anderen). Keys gehören in ein `BUILD_ARGS`-Secret: Run-Eingaben sind in einem öffentlichen Repo öffentlich |
+| `build_args` | Zusätzliche Argumente für den automatischen Build beider Plattformen, wie `--dart-define=API_URL=https://staging.example.com` für Flutter (Gradle- und xcodebuild-Argumente für die anderen). Keys gehören in ein `BUILD_ARGS`-Secret: Run-Eingaben sind in einem öffentlichen Repo öffentlich. Der Build-Code der App kann dieses Secret auch lesen: nimm einen kurzlebigen oder Staging-Key, nie einen dauerhaften |
 | `block_hosts` | Während der Tests blockierte Analytics-Hosts |
 | `record_video` | Bildschirmaufnahme jedes Smartphones, verschlüsselt mit den Berichten |
 | `replay_path` | Experimentell, Android: Nach jedem Agenten wird sein Pfad auf demselben Smartphone ohne Modell abgespielt ([docs/replay.md](../../../docs/replay.md)) |

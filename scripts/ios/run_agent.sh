@@ -48,7 +48,7 @@ fi
 source scripts/llm_env.sh || exit 1
 claude -p "Read $BRIEF and personas.json, then do the mission until the final report. PERSONA=$PERSONA PLATFORM=ios APP_ID=$APP_ID. Device: $DEVICE, text size ${TEXT_SIZE:-large}, theme ${THEME:-light}${A11Y}, language $LOCALE. The simulator is already booted and the tools find it on their own (UDID is set): use the commands of the brief directly. Report anything that does not fit this screen (cut text, off-screen buttons, under the notch or home bar, broken layout)." \
   --model "${MODEL:-sonnet}" --max-turns 400 --output-format json \
-  --allowedTools "Bash(bash scripts/ios/gesture.sh:*),Bash(python3 scripts/ios/screen.py:*),Bash(python3 scripts/ios/type.py:*),Bash(sleep:*),Bash(ls:*),Bash(cat:bug_report.md),Bash(cat:results/*),Bash(mkdir:*),Read(AGENT_BRIEF.md),Read(briefs/**),Read(personas.json),Read(bug_report.md),Read(results/**),Write(./results/**),Edit(./results/**)" \
+  --allowedTools "Bash(bash scripts/ios/gesture.sh:*),Bash(python3 scripts/ios/screen.py:*),Bash(python3 scripts/ios/type.py:*),Bash(sleep:*),Bash(ls:*),Bash(mkdir:*),Read(AGENT_BRIEF.md),Read(briefs/**),Read(personas.json),Read(bug_report.md),Read(results/**),Write(./results/**),Edit(./results/**)" \
   > results/agent-output.json 2> results/agent-errors.txt
 CODE=$?
 python3 scripts/agent_status.py results/agent-output.json results/agent-errors.txt "$PERSONA" || true

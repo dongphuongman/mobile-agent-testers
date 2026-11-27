@@ -1,6 +1,6 @@
 # Prueba tu propia app
 
-[English](../../../docs/configuration.md) · [简体中文](../../zh-CN/docs/configuration.md) · [日本語](../../ja/docs/configuration.md) · Español · [Português](../../pt-BR/docs/configuration.md) · [Tiếng Việt](../../vi/docs/configuration.md) · [Türkçe](../../tr/docs/configuration.md)
+[English](../../../docs/configuration.md) · [简体中文](../../zh-CN/docs/configuration.md) · [日本語](../../ja/docs/configuration.md) · Español · [Português](../../pt-BR/docs/configuration.md) · [Tiếng Việt](../../vi/docs/configuration.md) · [Türkçe](../../tr/docs/configuration.md) · [Deutsch](../../de/docs/configuration.md)
 
 ```bash
 gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
@@ -18,7 +18,7 @@ gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \
 | `model`, `llm_base_url` | `sonnet` por defecto, `haiku` para gastar menos, o cualquier API compatible con Anthropic con su clave en un secret `LLM_API_KEY` ([docs/cheaper-models.md](../../../docs/cheaper-models.md)) |
 | `framework` | `auto` (por defecto) o fuerza uno de los frameworks de abajo |
 | `android_build` + `apk_path`, `ios_build` + `ios_app_path` | Tu propio comando de compilación, o la descarga de una app ya compilada (rutas relativas a `app_dir`) |
-| `build_args` | Argumentos extra para la compilación automática de las dos plataformas, como `--dart-define=API_URL=https://staging.example.com` en Flutter (argumentos de Gradle y xcodebuild en los demás). Las claves van en un secreto `BUILD_ARGS`: en un repo público, las entradas de cada ejecución son públicas |
+| `build_args` | Argumentos extra para la compilación automática de las dos plataformas, como `--dart-define=API_URL=https://staging.example.com` en Flutter (argumentos de Gradle y xcodebuild en los demás). Las claves van en un secreto `BUILD_ARGS`: en un repo público, las entradas de cada ejecución son públicas. El código de compilación de la app también puede leer ese secreto: usa una clave temporal o de staging, nunca una permanente |
 | `block_hosts` | Hosts de analítica bloqueados durante las pruebas |
 | `record_video` | Grabación de pantalla de cada teléfono, cifrada con los informes |
 | `replay_path` | Experimental, Android: después de cada agente, su recorrido se repite en el mismo teléfono sin modelo ([docs/replay.md](../../../docs/replay.md)) |

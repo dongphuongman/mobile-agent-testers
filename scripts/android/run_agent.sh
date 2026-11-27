@@ -99,8 +99,8 @@ ECR_REAL_ADB="$(command -v adb)"
 export ECR_REAL_ADB
 # The app under test writes the text this agent reads, so a tool grant is a trust boundary.
 # Read is the files the briefs name (not the workspace: .git/config holds a token), writes stay
-# in results/, and `cat` is for bug_report.md and the persona's own results, nothing else.
-ALLOWED="Bash(adb:*),Bash(python3 scripts/android/screen.py:*),Bash(python3 scripts/android/type.py:*),Bash(sleep:*),Bash(ls:*),Bash(cat:bug_report.md),Bash(cat:results/*),Bash(mkdir:*),Read(AGENT_BRIEF.md),Read(briefs/**),Read(personas.json),Read(bug_report.md),Read(results/**),Write(./results/**),Edit(./results/**)"
+# in results/. No `cat`: Read covers the same files.
+ALLOWED="Bash(adb:*),Bash(python3 scripts/android/screen.py:*),Bash(python3 scripts/android/type.py:*),Bash(sleep:*),Bash(ls:*),Bash(mkdir:*),Read(AGENT_BRIEF.md),Read(briefs/**),Read(personas.json),Read(bug_report.md),Read(results/**),Write(./results/**),Edit(./results/**)"
 SETTINGS="Device: ${DEVICE}, font scale x${FONT_SCALE:-1.0}, theme ${THEME:-light}${A11Y}, language $LOCALE."
 CODE=0
 case "${MAP:-none}" in

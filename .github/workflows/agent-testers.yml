@@ -109,9 +109,10 @@ jobs:
           # The template ships its own public key, so a run before ./setup.sh would encrypt the
           # results to a key the user does not hold the private half of, while PRIVACY.md promises
           # the opposite. Fail closed on the shipped key instead of only checking non-emptiness.
+          # The original repo keeps that key: its maintainer holds the private half.
           TEMPLATE_KEY=3852fd09efc2d4fca26e8154e0595b241b82b850ddcc78bbee2961b03fb3a551
           KEY=$(sha256sum results_public.pem | cut -d' ' -f1)
-          [ "$KEY" != "$TEMPLATE_KEY" ] || { echo "::error::results_public.pem is still the template's key: run ./setup.sh, which creates your key and commits it"; exit 1; }
+          [ "$KEY" != "$TEMPLATE_KEY" ] || [ "$GITHUB_REPOSITORY" = pierridotite/mobile-agent-testers ] || { echo "::error::results_public.pem is still the template's key: run ./setup.sh, which creates your key and commits it"; exit 1; }
       - id: m
         env:
           A: ${{ inputs.android_personas }}
@@ -253,6 +254,7 @@ jobs:
         include: ${{ fromJSON(needs.plan.outputs.android) }}
     steps:
       - uses: actions/checkout@v4
+        with: { persist-credentials: false }   # no token in .git/config: the agent reads text the app wrote
       - uses: actions/download-artifact@v4
         with: { name: app-android }
       - name: Decrypt APK
@@ -389,6 +391,7 @@ jobs:
         include: ${{ fromJSON(needs.plan.outputs.ios) }}
     steps:
       - uses: actions/checkout@v4
+        with: { persist-credentials: false }   # no token in .git/config: the agent reads text the app wrote
       - uses: actions/download-artifact@v4
         with: { name: app-ios }
       - name: Decrypt .app
@@ -494,6 +497,7 @@ jobs:
         include: ${{ fromJSON(needs.plan.outputs.web) }}
     steps:
       - uses: actions/checkout@v4
+        with: { persist-credentials: false }   # no token in .git/config: the agent reads text the app wrote
       - name: Tools (Playwright with WebKit and Chromium, Claude Code)
         run: |
           python3 -m pip install -q playwright==1.58.0 pillow

@@ -1,6 +1,6 @@
 # Ejemplos aplicados
 
-[English](../../../docs/examples.md) · [简体中文](../../zh-CN/docs/examples.md) · [日本語](../../ja/docs/examples.md) · Español · [Português](../../pt-BR/docs/examples.md) · [Tiếng Việt](../../vi/docs/examples.md) · [Türkçe](../../tr/docs/examples.md) · [Deutsch](../../de/docs/examples.md)
+[English](../../../docs/examples.md) · [简体中文](../../zh-CN/docs/examples.md) · [日本語](../../ja/docs/examples.md) · Español · [Português](../../pt-BR/docs/examples.md) · [Tiếng Việt](../../vi/docs/examples.md) · [Türkçe](../../tr/docs/examples.md) · [Deutsch](../../de/docs/examples.md) · [हिन्दी](../../hi/docs/examples.md)
 
 Ejecuciones reales en apps de código abierto, sin nada plantado. Cada cifra sale de [las ejecuciones](../../../docs/runs/), donde están todos los informes, dispositivo por dispositivo.
 

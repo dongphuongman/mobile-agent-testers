@@ -14,7 +14,7 @@
 
 **[Exemplos](docs/examples.md)** · **[Demo do dashboard](https://pierridotite.github.io/mobile-agent-testers/)** · **[Comparação](../../docs/compare.md)** · **[Perguntas frequentes](docs/faq.md)** · **[Personas](../../personas.json)** · **[Contribuir](../../CONTRIBUTING.md)**
 
-<sub>[English](../../README.md) · [简体中文](../zh-CN/README.md) · [日本語](../ja/README.md) · [Español](../es/README.md) · Português · [Tiếng Việt](../vi/README.md) · [Türkçe](../tr/README.md) · [Deutsch](../de/README.md)</sub>
+<sub>[English](../../README.md) · [简体中文](../zh-CN/README.md) · [日本語](../ja/README.md) · [Español](../es/README.md) · Português · [Tiếng Việt](../vi/README.md) · [Türkçe](../tr/README.md) · [Deutsch](../de/README.md) · [हिन्दी](../hi/README.md)</sub>
 
 <a href="https://www.linkedin.com/in/pierre-raffalli/"><picture><source media="(prefers-color-scheme: dark)" srcset="../../assets/linkedin-follow-dark.svg"><img src="../../assets/linkedin-follow-light.svg" alt="Follow Pierre Raffalli on LinkedIn" width="160" height="54"></picture></a>
 <a href="https://discord.gg/WuaCANscr8"><picture><source media="(prefers-color-scheme: dark)" srcset="../../assets/discord-join-dark.svg"><img src="../../assets/discord-join-light.svg" alt="Join us on Discord" width="160" height="54"></picture></a><br>

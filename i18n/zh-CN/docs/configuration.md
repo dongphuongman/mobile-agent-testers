@@ -1,6 +1,6 @@
 # 测试你自己的应用
 
-[English](../../../docs/configuration.md) · 简体中文 · [日本語](../../ja/docs/configuration.md) · [Español](../../es/docs/configuration.md) · [Português](../../pt-BR/docs/configuration.md) · [Tiếng Việt](../../vi/docs/configuration.md) · [Türkçe](../../tr/docs/configuration.md) · [Deutsch](../../de/docs/configuration.md)
+[English](../../../docs/configuration.md) · 简体中文 · [日本語](../../ja/docs/configuration.md) · [Español](../../es/docs/configuration.md) · [Português](../../pt-BR/docs/configuration.md) · [Tiếng Việt](../../vi/docs/configuration.md) · [Türkçe](../../tr/docs/configuration.md) · [Deutsch](../../de/docs/configuration.md) · [हिन्दी](../../hi/docs/configuration.md)
 
 ```bash
 gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app \

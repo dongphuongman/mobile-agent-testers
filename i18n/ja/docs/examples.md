@@ -1,6 +1,6 @@
 # 適用例
 
-[English](../../../docs/examples.md) · [简体中文](../../zh-CN/docs/examples.md) · 日本語 · [Español](../../es/docs/examples.md) · [Português](../../pt-BR/docs/examples.md) · [Tiếng Việt](../../vi/docs/examples.md) · [Türkçe](../../tr/docs/examples.md) · [Deutsch](../../de/docs/examples.md)
+[English](../../../docs/examples.md) · [简体中文](../../zh-CN/docs/examples.md) · 日本語 · [Español](../../es/docs/examples.md) · [Português](../../pt-BR/docs/examples.md) · [Tiếng Việt](../../vi/docs/examples.md) · [Türkçe](../../tr/docs/examples.md) · [Deutsch](../../de/docs/examples.md) · [हिन्दी](../../hi/docs/examples.md)
 
 オープンソースのアプリでの実際の実行です。仕込んだバグはありません。 数字はすべて[実行記録](../../../docs/runs/)から取っています。そこでは、すべてのレポートを端末ごとに見られます。
 

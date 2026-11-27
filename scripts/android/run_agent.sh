@@ -23,6 +23,11 @@ AAPT2=$(ls "${ANDROID_HOME:-/usr/local/lib/android/sdk}"/build-tools/*/aapt2 2>/
 PKG=$([ -n "$AAPT2" ] && "$AAPT2" dump packagename app.apk 2>/dev/null | tr -d '\r')
 if [ -n "$PKG" ] && [ "$PKG" != "$APP_ID" ]; then echo "Package read from the APK (differs from app_id)"; APP_ID=$PKG; fi
 export APP_ID
+# The package string comes from the APK (an attacker-controlled artifact) and is passed to
+# `adb shell`, which joins its arguments into one command the device shell parses: a package
+# named `x; id` would run `id` on the emulator, as root when `adb root` ran above.
+# scripts/device_state.py already refuses such a value; the same rule applies here.
+case "$APP_ID" in ""|*[!A-Za-z0-9._-]*) echo "::error::invalid app id from the APK or app_id: refusing to pass it to adb"; exit 1 ;; esac
 adb install -r -g app.apk || adb install -r app.apk
 adb shell settings put system font_scale "${FONT_SCALE:-1.0}"
 [ "${THEME:-light}" = dark ] && adb shell cmd uimode night yes
@@ -92,7 +97,10 @@ fi
 # with robot+agent, an agent is called only when the robot met a form it could not pass.
 ECR_REAL_ADB="$(command -v adb)"
 export ECR_REAL_ADB
-ALLOWED="Bash(adb:*),Bash(python3 scripts/android/screen.py:*),Bash(python3 scripts/android/type.py:*),Bash(sleep:*),Bash(ls:*),Bash(cat:*),Bash(mkdir:*),Read,Write,Edit"
+# The app under test writes the text this agent reads, so a tool grant is a trust boundary.
+# Read is the files the briefs name (not the workspace: .git/config holds a token), writes stay
+# in results/, and `cat` is for bug_report.md and the persona's own results, nothing else.
+ALLOWED="Bash(adb:*),Bash(python3 scripts/android/screen.py:*),Bash(python3 scripts/android/type.py:*),Bash(sleep:*),Bash(ls:*),Bash(cat:bug_report.md),Bash(cat:results/*),Bash(mkdir:*),Read(AGENT_BRIEF.md),Read(briefs/**),Read(personas.json),Read(bug_report.md),Read(results/**),Write(./results/**),Edit(./results/**)"
 SETTINGS="Device: ${DEVICE}, font scale x${FONT_SCALE:-1.0}, theme ${THEME:-light}${A11Y}, language $LOCALE."
 CODE=0
 case "${MAP:-none}" in

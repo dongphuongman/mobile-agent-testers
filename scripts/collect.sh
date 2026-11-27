@@ -18,7 +18,20 @@ for key in "$OUT"/enc/*/*.key.bin; do
   name=$(basename "$key" .key.bin); dir=$(dirname "$key")
   pass=$(openssl pkeyutl -decrypt -inkey "$PRIV" -pkeyopt rsa_padding_mode:oaep -in "$key")
   mkdir -p "$OUT/$name"
-  openssl enc -d -aes-256-cbc -pbkdf2 -in "$dir/$name.tgz.enc" -pass "pass:$pass" | tar xz -C "$OUT/$name"
+  tgz="$dir/$name.tgz"
+  openssl enc -d -aes-256-cbc -pbkdf2 -in "$dir/$name.tgz.enc" -pass "pass:$pass" -out "$tgz"
+  # The archive was built by jobs that ran untrusted code (the app's own build and the agent that
+  # reads the app): refuse a member that escapes the output directory, and refuse symlinks.
+  LIST=$(tar tzf "$tgz") || { rm -f "$tgz"; echo "::error::cannot read $name: not a tar archive"; exit 1; }
+  if printf '%s\n' "$LIST" | grep -E '(^|/)\.\.(/|$)|^/' >/dev/null; then
+    rm -f "$tgz"; echo "::error::refusing $name: an archive member escapes the output directory"; exit 1
+  fi
+  LISTV=$(tar tvzf "$tgz")
+  if printf '%s\n' "$LISTV" | grep -E '^l' >/dev/null; then
+    rm -f "$tgz"; echo "::error::refusing $name: the archive contains a symlink"; exit 1
+  fi
+  tar xzf "$tgz" -C "$OUT/$name"
+  rm -f "$tgz"
   # no agent-output.json: no agent ran (map=robot, the map maker with no model)
   [ -f "$OUT/$name/results/agent-output.json" ] && python3 -c "" 2>/dev/null && python3 "$(dirname "$0")/agent_status.py" "$OUT/$name/results/agent-output.json" "$OUT/$name/results/agent-errors.txt" "$name" || true
 done

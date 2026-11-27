@@ -1,6 +1,6 @@
 # FAQ
 
-English · [简体中文](../i18n/zh-CN/docs/faq.md) · [日本語](../i18n/ja/docs/faq.md) · [Español](../i18n/es/docs/faq.md) · [Português](../i18n/pt-BR/docs/faq.md) · [Tiếng Việt](../i18n/vi/docs/faq.md) · [Türkçe](../i18n/tr/docs/faq.md) · [Deutsch](../i18n/de/docs/faq.md)
+English · [简体中文](../i18n/zh-CN/docs/faq.md) · [日本語](../i18n/ja/docs/faq.md) · [Español](../i18n/es/docs/faq.md) · [Português](../i18n/pt-BR/docs/faq.md) · [Tiếng Việt](../i18n/vi/docs/faq.md) · [Türkçe](../i18n/tr/docs/faq.md) · [Deutsch](../i18n/de/docs/faq.md) · [हिन्दी](../i18n/hi/docs/faq.md)
 
 ## Do 20 agents just find the same bug 20 times?
 

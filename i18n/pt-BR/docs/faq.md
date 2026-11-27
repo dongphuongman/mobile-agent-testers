@@ -1,6 +1,6 @@
 # Perguntas frequentes
 
-[English](../../../docs/faq.md) · [简体中文](../../zh-CN/docs/faq.md) · [日本語](../../ja/docs/faq.md) · [Español](../../es/docs/faq.md) · Português · [Tiếng Việt](../../vi/docs/faq.md) · [Türkçe](../../tr/docs/faq.md) · [Deutsch](../../de/docs/faq.md)
+[English](../../../docs/faq.md) · [简体中文](../../zh-CN/docs/faq.md) · [日本語](../../ja/docs/faq.md) · [Español](../../es/docs/faq.md) · Português · [Tiếng Việt](../../vi/docs/faq.md) · [Türkçe](../../tr/docs/faq.md) · [Deutsch](../../de/docs/faq.md) · [हिन्दी](../../hi/docs/faq.md)
 
 ## 20 agentes não acham o mesmo bug 20 vezes?
 

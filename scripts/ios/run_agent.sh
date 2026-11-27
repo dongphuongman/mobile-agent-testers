@@ -32,6 +32,7 @@ xcrun simctl install "$UDID" "$APP" || { echo "install failed"; exit 1; }
 BID=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$APP/Info.plist" 2>/dev/null)
 if [ -n "$BID" ] && [ "$BID" != "$APP_ID" ]; then echo "Bundle id read from the app (differs from app_id)"; APP_ID=$BID; fi
 export APP_ID
+case "$APP_ID" in ""|*[!A-Za-z0-9._-]*) echo "::error::invalid bundle id from the app or app_id: refusing to launch it"; exit 1 ;; esac
 xcrun simctl launch "$UDID" "$APP_ID"; sleep 8
 # First capture stores the screen width in points for gesture.sh
 python3 scripts/ios/screen.py "$RUNNER_TEMP/warmup" 00 >/dev/null 2>&1 || true
@@ -47,7 +48,7 @@ fi
 source scripts/llm_env.sh || exit 1
 claude -p "Read $BRIEF and personas.json, then do the mission until the final report. PERSONA=$PERSONA PLATFORM=ios APP_ID=$APP_ID. Device: $DEVICE, text size ${TEXT_SIZE:-large}, theme ${THEME:-light}${A11Y}, language $LOCALE. The simulator is already booted and the tools find it on their own (UDID is set): use the commands of the brief directly. Report anything that does not fit this screen (cut text, off-screen buttons, under the notch or home bar, broken layout)." \
   --model "${MODEL:-sonnet}" --max-turns 400 --output-format json \
-  --allowedTools "Bash(bash scripts/ios/gesture.sh:*),Bash(python3 scripts/ios/screen.py:*),Bash(python3 scripts/ios/type.py:*),Bash(sleep:*),Bash(ls:*),Bash(cat:*),Bash(mkdir:*),Read,Write,Edit" \
+  --allowedTools "Bash(bash scripts/ios/gesture.sh:*),Bash(python3 scripts/ios/screen.py:*),Bash(python3 scripts/ios/type.py:*),Bash(sleep:*),Bash(ls:*),Bash(cat:bug_report.md),Bash(cat:results/*),Bash(mkdir:*),Read(AGENT_BRIEF.md),Read(briefs/**),Read(personas.json),Read(bug_report.md),Read(results/**),Write(./results/**),Edit(./results/**)" \
   > results/agent-output.json 2> results/agent-errors.txt
 CODE=$?
 python3 scripts/agent_status.py results/agent-output.json results/agent-errors.txt "$PERSONA" || true

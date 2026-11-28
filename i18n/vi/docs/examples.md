@@ -1,6 +1,6 @@
 # Các ví dụ thực tế
 
-[English](../../../docs/examples.md) · [简体中文](../../zh-CN/docs/examples.md) · [日本語](../../ja/docs/examples.md) · [Español](../../es/docs/examples.md) · [Português](../../pt-BR/docs/examples.md) · Tiếng Việt · [Türkçe](../../tr/docs/examples.md) · [Deutsch](../../de/docs/examples.md) · [हिन्दी](../../hi/docs/examples.md)
+[English](../../../docs/examples.md) · [简体中文](../../zh-CN/docs/examples.md) · [日本語](../../ja/docs/examples.md) · [Español](../../es/docs/examples.md) · [Português](../../pt-BR/docs/examples.md) · Tiếng Việt · [Türkçe](../../tr/docs/examples.md) · [Deutsch](../../de/docs/examples.md) · [हिन्दी](../../hi/docs/examples.md) · [한국어](../../ko/docs/examples.md)
 
 Các lần chạy thật trên các ứng dụng mã nguồn mở, không gài sẵn gì cả. Mọi con số đều lấy từ [các lần chạy](../../../docs/runs/), nơi mỗi báo cáo được liệt kê theo từng thiết bị.
 

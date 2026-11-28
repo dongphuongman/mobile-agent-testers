@@ -1,6 +1,6 @@
 # 应用实例
 
-[English](../../../docs/examples.md) · 简体中文 · [日本語](../../ja/docs/examples.md) · [Español](../../es/docs/examples.md) · [Português](../../pt-BR/docs/examples.md) · [Tiếng Việt](../../vi/docs/examples.md) · [Türkçe](../../tr/docs/examples.md) · [Deutsch](../../de/docs/examples.md) · [हिन्दी](../../hi/docs/examples.md)
+[English](../../../docs/examples.md) · 简体中文 · [日本語](../../ja/docs/examples.md) · [Español](../../es/docs/examples.md) · [Português](../../pt-BR/docs/examples.md) · [Tiếng Việt](../../vi/docs/examples.md) · [Türkçe](../../tr/docs/examples.md) · [Deutsch](../../de/docs/examples.md) · [हिन्दी](../../hi/docs/examples.md) · [한국어](../../ko/docs/examples.md)
 
 在开源应用上的真实运行，没有预先埋入任何缺陷。 所有数字都来自[运行记录](../../../docs/runs/)，那里逐台设备列出了每一份报告。
 

@@ -1,6 +1,6 @@
 # Praxisbeispiele
 
-[English](../../../docs/examples.md) · [简体中文](../../zh-CN/docs/examples.md) · [日本語](../../ja/docs/examples.md) · [Español](../../es/docs/examples.md) · [Português](../../pt-BR/docs/examples.md) · [Tiếng Việt](../../vi/docs/examples.md) · [Türkçe](../../tr/docs/examples.md) · Deutsch · [हिन्दी](../../hi/docs/examples.md)
+[English](../../../docs/examples.md) · [简体中文](../../zh-CN/docs/examples.md) · [日本語](../../ja/docs/examples.md) · [Español](../../es/docs/examples.md) · [Português](../../pt-BR/docs/examples.md) · [Tiếng Việt](../../vi/docs/examples.md) · [Türkçe](../../tr/docs/examples.md) · Deutsch · [हिन्दी](../../hi/docs/examples.md) · [한국어](../../ko/docs/examples.md)
 
 Echte Läufe auf Open-Source-Apps, ohne eingepflanzte Fehler. Jede Zahl stammt aus [den Läufen](../../../docs/runs/), in denen jeder Bericht Gerät für Gerät aufgeführt ist.
 

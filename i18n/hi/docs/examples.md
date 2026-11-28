@@ -1,6 +1,6 @@
 # लागू किए हुए उदाहरण
 
-[English](../../../docs/examples.md) · [简体中文](../../zh-CN/docs/examples.md) · [日本語](../../ja/docs/examples.md) · [Español](../../es/docs/examples.md) · [Português](../../pt-BR/docs/examples.md) · [Tiếng Việt](../../vi/docs/examples.md) · [Türkçe](../../tr/docs/examples.md) · [Deutsch](../../de/docs/examples.md) · हिन्दी
+[English](../../../docs/examples.md) · [简体中文](../../zh-CN/docs/examples.md) · [日本語](../../ja/docs/examples.md) · [Español](../../es/docs/examples.md) · [Português](../../pt-BR/docs/examples.md) · [Tiếng Việt](../../vi/docs/examples.md) · [Türkçe](../../tr/docs/examples.md) · [Deutsch](../../de/docs/examples.md) · हिन्दी · [한국어](../../ko/docs/examples.md)
 
 खुले स्रोत के ऐप पर असली रन, कुछ भी जानबूझकर नहीं रखा गया। हर आँकड़ा [रनों](../../../docs/runs/) से है, जहाँ हर रिपोर्ट डिवाइस दर डिवाइस सूचीबद्ध है।
 

@@ -1,6 +1,6 @@
 # अक्सर पूछे जाने वाले सवाल
 
-[English](../../../docs/faq.md) · [简体中文](../../zh-CN/docs/faq.md) · [日本語](../../ja/docs/faq.md) · [Español](../../es/docs/faq.md) · [Português](../../pt-BR/docs/faq.md) · [Tiếng Việt](../../vi/docs/faq.md) · [Türkçe](../../tr/docs/faq.md) · [Deutsch](../../de/docs/faq.md) · हिन्दी
+[English](../../../docs/faq.md) · [简体中文](../../zh-CN/docs/faq.md) · [日本語](../../ja/docs/faq.md) · [Español](../../es/docs/faq.md) · [Português](../../pt-BR/docs/faq.md) · [Tiếng Việt](../../vi/docs/faq.md) · [Türkçe](../../tr/docs/faq.md) · [Deutsch](../../de/docs/faq.md) · हिन्दी · [한국어](../../ko/docs/faq.md)
 
 ## क्या 20 एजेंट एक ही बग 20 बार पाते हैं?
 
